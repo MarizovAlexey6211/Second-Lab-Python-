@@ -11,3 +11,16 @@ from dataclasses import dataclass, asdict
 from typing import Collection, List
 
 from tqdm import tqdm
+
+@dataclass
+class Record:
+    """Data class for storing info about scientific staff"""
+    telephone: str
+    weight: int
+    inn: str
+    passport_number: int
+    occupation: str
+    work_experience: int
+    academic_degree: str
+    worldview: str
+    address: str
