@@ -83,3 +83,127 @@ class Record:
                         valid_records.append(record)
 
                 return valid_records
+
+    @staticmethod
+    def validation_telephone(telephone: str) -> bool:
+        """Validates telephone number
+
+         Checks telephone number
+         for following pattern "+7-(111)-222-33-44".
+
+        Args:
+            telephone: string contains checking number of telephone
+        Returns:
+            bool result of validation
+        """
+        pattern = r"^\+\d-\(\d{3}\)-\d{3}-\d{2}-\d{2}$"
+        try:
+            return True if re.match(pattern, telephone) else False
+        except TypeError:
+            return False
+
+    @staticmethod
+    def validation_weight(weight: int) -> bool:
+        """Validates weight
+
+         Checks weights for realness.
+         Adult can't weight more than 610 kilo and less than 30 kilo.
+
+        Args:
+            weight: integer weight of human
+        Returns:
+            bool result of validation
+        """
+        try:
+            return 30 < weight < 610
+        except TypeError:
+            return False
+
+    @staticmethod
+    def validation_inn(inn: str) -> bool:
+        """Validates inn
+
+         Checks inn for following format.
+         It can contains only 12 numbers.
+
+        Args:
+            inn: string contains inn(tax identification number)
+        Returns:
+            bool result of validation
+        """
+        pattern = r"^\d{12}$"
+        try:
+            return True if re.match(pattern, inn) else False
+        except TypeError:
+            return False
+
+    @staticmethod
+    def validation_passport_number(passport_number: int) -> bool:
+        """Validates passport number.
+
+         Checks passport number for following format.
+         It can contains only 6 numbers.
+
+        Args:
+            passport_number: integer passport number
+        Returns:
+            bool result of validation
+        """
+        pattern = r"^\d{6}$"
+        try:
+            return True if re.match(pattern, str(passport_number)) else False
+        except TypeError:
+            return False
+
+    @staticmethod
+    def validation_text_properties(text_properties: str) -> bool:
+        """Validates text properties.
+
+         Checks text properties for
+         not containing special symbol and numbers
+
+        Args:
+            text_properties: string properties
+        Returns:
+            bool result of validation
+        """
+        pattern = r"^[^\d.,?]{2,}$"
+        try:
+            return True if re.match(pattern, str(text_properties)) else False
+        except TypeError:
+            return False
+
+    @staticmethod
+    def validation_work_experience(number_of_years: int) -> bool:
+        """Validates work experience.
+
+         Checks work experience for realness.
+         Work experience can't be more than 99 years and less than 0 years.
+
+        Args:
+            number_of_years: integer number of years of work experience
+        Returns:
+            bool result of validation
+        """
+        try:
+            return 0 < number_of_years < 99
+        except TypeError:
+            return False
+
+    @staticmethod
+    def validation_address(address: str) -> bool:
+        """Validates address.
+
+         Checks address
+         for following pattern ""(улица) (номер дома)"".
+
+        Args:
+            address: string contains checking address
+        Returns:
+            bool result of validation
+        """
+        pattern = r"^[А-Яа-я.,\-0-9()\s]{2,}[\s]?\d+$"
+        try:
+            return True if re.match(pattern, str(address)) else False
+        except TypeError:
+            return False
